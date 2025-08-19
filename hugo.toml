@@ -1,0 +1,56 @@
+baseURL = "https://hugoisstaticsitegeneratorbygo.netlify.app/"
+languageCode = "zh-rw"
+defaultContentLanguage = "zh-rw"
+title = "星空下微風輕拂黃光閃耀的世界"
+theme = "PaperMod"
+enableRobotsTXT = true
+hasCJKLanguage = true
+enableGitInfo = true
+[params]
+ShowWordCount = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowRssButtonInSectionTermList = true 
+[params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+[params.search]
+enable = true
+searchEngine = "fuse"
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+[menu]
+  [[menu.main]]
+    name = "首頁"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "文章列表"
+    url = "/archives/"
+    weight = 2
+
+  [[menu.main]]
+    name = "搜尋"
+    url = "/search/"
+    weight = 3
+
+  [[menu.main]]
+    name = "分類"
+    url = "/categories/"
+    weight = 4
+
+  [[menu.main]]
+    name = "標籤"
+    url = "/tags/"
+    weight = 5
+
+  [[menu.main]]
+    name = "關於"
+    url = "/about/"
+    weight = 6
