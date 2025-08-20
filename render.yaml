@@ -1,0 +1,17 @@
+# render.yaml
+services:
+  - type: web
+    name: hugoisstaticsitegeneratorbygo
+    env: static
+    buildCommand: |
+      # 安裝 Hugo v0.148.2
+      curl -L https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_0.148.2_Linux-64bit.tar.gz | tar -xz
+      mv hugo /usr/local/bin/hugo
+
+      # 確保 Google Analytics partial 存在
+      mkdir -p themes/PaperMod/layouts/partials
+      touch themes/PaperMod/layouts/partials/google_analytics.html
+
+      # Build Hugo site
+      hugo --gc --minify
+    publishPath: public

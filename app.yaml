@@ -1,0 +1,21 @@
+name: urchin-app
+region: sgp
+services:
+  - name: hugo
+    github:
+      repo: yourname/yourrepo   # 換成你的 GitHub repo
+      branch: master            # 或 main
+      deploy_on_push: true
+    environment_slug: static-sites
+    envs:
+      - key: HUGO_VERSION
+        value: "0.147.8"         # 在 DO 平台上也可以改
+    build_command: |
+      curl -L -o hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz
+      tar -xzf hugo.tar.gz
+      mv hugo /usr/local/bin/hugo
+      hugo -d public
+    run_command: ""
+    source_dir: /
+    output_dir: public
+    http_port: 8080
